@@ -53,6 +53,7 @@ public abstract class AbstractWarehouseAPICRUDRepository<T extends BaseEntity, I
     }
 
     @Override
+    @Transactional
     public void delete(ID id) {
         getSession().createQuery("update " + entity.getName() + " set status = 'DELETED' where id=: entityId ", entity)
                 .setParameter("id", id.getId());
