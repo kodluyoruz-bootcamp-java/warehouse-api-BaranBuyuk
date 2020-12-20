@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 
 @Transactional(readOnly = true)
-public abstract class AbstractWarehouseAPICRUDRepository<T extends BaseEntity, ID extends BaseEntity>
+public abstract class AbstractWarehouseAPIRepository<T extends BaseEntity, ID extends Long>
         implements WarehouseAPICRUDBaseRepository<T, ID> {
 
     @PersistenceContext
@@ -19,7 +19,7 @@ public abstract class AbstractWarehouseAPICRUDRepository<T extends BaseEntity, I
     private Class<T> entity;
 
     @SuppressWarnings("unchecked")
-    public AbstractWarehouseAPICRUDRepository() {
+    public AbstractWarehouseAPIRepository() {
         this.entity = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
@@ -55,7 +55,9 @@ public abstract class AbstractWarehouseAPICRUDRepository<T extends BaseEntity, I
     @Override
     @Transactional
     public void delete(ID id) {
-        getSession().createQuery("update " + entity.getName() + " set status = 'DELETED' where id=: entityId ", entity)
-                .setParameter("id", id.getId());
+        getSession()
+                .createQuery("update " + entity.getName() + " set status = 'DELETED' where id=:entityId ")
+                .setParameter("entityId", id)
+                .executeUpdate();
     }
 }

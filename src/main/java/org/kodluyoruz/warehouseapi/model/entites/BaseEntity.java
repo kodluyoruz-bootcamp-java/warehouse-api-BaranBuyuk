@@ -7,9 +7,10 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-@MappedSuperclass
+
 @Getter
 @Setter
+@MappedSuperclass
 public class BaseEntity {
 
     @Id

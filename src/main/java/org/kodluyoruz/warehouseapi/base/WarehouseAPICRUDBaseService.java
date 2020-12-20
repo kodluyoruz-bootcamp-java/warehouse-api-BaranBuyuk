@@ -1,14 +1,16 @@
 package org.kodluyoruz.warehouseapi.base;
 
+import org.kodluyoruz.warehouseapi.model.dto.BaseIDDTO;
+
 import java.util.Collection;
 
 public interface WarehouseAPICRUDBaseService<T extends BaseIDDTO> {
 
-    WarehouseAPIResponse<Collection<T>> list();
+    WarehouseAPIResponseHolder<Collection<T>> list();
 
-    WarehouseAPIResponse<T> create(T data);
+    WarehouseAPIResponseHolder<T> create(T data);
 
-    WarehouseAPIResponse<T> update(T data);
+    WarehouseAPIResponseHolder<T> update(T data);
 
-    WarehouseAPIResponse<?> delete(BaseIDDTO data);
+    WarehouseAPIResponseHolder<?> delete(BaseIDDTO data);
 }

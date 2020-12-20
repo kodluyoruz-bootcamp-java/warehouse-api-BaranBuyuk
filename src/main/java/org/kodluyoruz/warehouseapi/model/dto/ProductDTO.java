@@ -2,7 +2,6 @@ package org.kodluyoruz.warehouseapi.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.kodluyoruz.warehouseapi.base.BaseIDDTO;
 import org.kodluyoruz.warehouseapi.model.enums.ProductStatus;
 
 import java.math.BigDecimal;

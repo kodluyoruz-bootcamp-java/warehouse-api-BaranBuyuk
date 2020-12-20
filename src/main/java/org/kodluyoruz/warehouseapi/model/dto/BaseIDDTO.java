@@ -1,4 +1,4 @@
-package org.kodluyoruz.warehouseapi.base;
+package org.kodluyoruz.warehouseapi.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

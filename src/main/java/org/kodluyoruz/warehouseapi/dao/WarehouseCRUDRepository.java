@@ -1,6 +1,5 @@
 package org.kodluyoruz.warehouseapi.dao;
 
-import org.kodluyoruz.warehouseapi.model.entites.BaseEntity;
 import org.kodluyoruz.warehouseapi.model.entites.WarehouseEntity;
 
 import java.util.Collection;
@@ -13,6 +12,7 @@ public interface WarehouseCRUDRepository {
 
     WarehouseEntity update(WarehouseEntity warehouseEntity);
 
-    void delete(BaseEntity baseEntity);
+    void delete(Long id);
+
 
 }
