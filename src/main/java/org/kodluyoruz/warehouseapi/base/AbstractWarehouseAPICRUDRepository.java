@@ -39,12 +39,14 @@ public abstract class AbstractWarehouseAPICRUDRepository<T extends BaseEntity, I
     }
 
     @Override
+    @Transactional
     public T create(T entity) {
         getSession().persist(entity);
         return entity;
     }
 
     @Override
+    @Transactional
     public T update(T entity) {
         getSession().update(entity);
         return entity;
